@@ -1,0 +1,30 @@
+--------------------
+REGISTER USER
+-------------
+curl --location --request POST 'http://localhost:8080/registerUser' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "userName": "test",
+    "password": "test123",
+    "active": "true",
+    "roles": "ADMIN"
+}'
+
+
+--------------------
+AUTHENTICATE USER
+--------------------
+curl --location --request POST 'http://localhost:8080/authenticateUser' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username": "test",
+    "password": "test123"
+}'
+
+
+--------------------
+ACCESSING THE MAIN API
+--------------------
+curl --location --request GET 'http://localhost:8080/dashboard' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0IiwiZXhwIjoxNTk2NTExNzk1LCJpYXQiOjE1OTY1MTExOTV9.B9uKz9EmuQLfvVZO78vcA2QTNKF1V9GWu6GNgemlCRc'
